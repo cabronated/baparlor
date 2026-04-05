@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Attraction Parlor | The Ultimate Ladies Sanctuary</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #aa8c2c;
+            --cream: #FFFDF5;
+            --blush: #FDEDEC;
+            --deep-charcoal: #2C3E50;
+            --text-main: #34495E;
+            --white: #ffffff;
+            --shadow-light: 0 10px 30px rgba(0,0,0,0.05);
+            --shadow-dark: 0 15px 40px rgba(212, 175, 55, 0.15);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: var(--deep-charcoal);
+        }
+
+        .section-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background-color: var(--gold);
+            margin: 15px auto 0;
+        }
+
+        /* --- LAYOUT UTILITIES --- */
+        section {
+            padding: 100px 10%;
+        }
+
+        /* --- SCROLL ANIMATION CLASSES --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+        }
+
+        .brand {
+            font-size: 1.8rem;
+            color: var(--deep-charcoal);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* --- HERO SECTION (Parallax) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.5), rgba(44, 62, 80, 0.3)), 
+                        url('https://images.unsplash.com/photo-1600948836101-f9ffdb596593?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 0;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            animation: fadeInUp 1s ease 0.3s backwards;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-gold {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            border: 2px solid var(--gold);
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            background-color: var(--white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .about-text h2::after { margin: 15px 0 0; }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: url('https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=80&w=1000&auto=format&fit=crop') center/cover;
+            box-shadow: var(--shadow-dark);
+            border: 10px solid var(--cream);
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: 600;
+            font-style: italic;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+        }
+
+        /* --- SERVICES SECTION --- */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .category-card {
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            border-radius: 0;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background-color: var(--gold);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .category-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .category-card h3 {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .service-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+        }
+
+        .service-name {
+            font-weight: 400;
+            font-size: 1rem;
+            color: var(--text-main);
+            position: relative;
+            padding-right: 15px;
+            background: var(--white);
+        }
+
+        .service-dots {
+            flex-grow: 1;
+            border-bottom: 1px dotted #ccc;
+            height: 1px;
+        }
+
+        .service-price {
+            font-weight: 600;
+            color: var(--deep-charcoal);
+            font-size: 1.1rem;
+            padding-left: 15px;
+            background: var(--white);
+        }
+
+        /* --- GALLERY SECTION --- */
+        .gallery {
+            background-color: var(--blush);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+            transition: var(--transition);
+            filter: grayscale(100%);
+        }
+
+        .gallery-item:hover {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .g1 { background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=500'); }
+        .g2 { background-image: url('https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=500'); }
+        .g3 { background-image: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=500'); }
+        .g4 { background-image: url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=500'); }
+
+        /* --- CONTACT SECTION --- */
+        .contact {
+            background-color: var(--white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 { margin-bottom: 20px; font-size: 1.8rem;}
+        .contact-info p { margin-bottom: 10px; font-size: 1.05rem;}
+        .contact-info strong { color: var(--deep-charcoal); font-weight: 600;}
+        
+        .hours { list-style: none; margin-top: 30px;}
+        .hours li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; font-weight: 500;}
+
+        .map-box {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            background-color: #eee;
+            border: 5px solid var(--cream);
+            box-shadow: var(--shadow-light);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--deep-charcoal);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 50px 10%;
+        }
+
+        footer h2 { color: var(--gold); margin-bottom: 10px;}
+
+        /* --- FLOATING WHATSAPP BUTTON --- */
+        .floating-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366; /* WhatsApp Green */
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .floating-contact:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        /* --- ANIMATIONS & MEDIA QUERIES --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.5rem; }
+            section { padding: 80px 5%; }
+            .about, .contact { grid-template-columns: 1fr; }
+            .about-image { height: 300px; order: -1;}
+            .map-box { order: -1; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="brand">Beauty Attraction</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <span class="section-subtitle" style="color:white; opacity:0.8;">Welcome to</span>
+        <h1>Beauty Attraction Parlor</h1>
+        <p>Exclusively for women. Discover your true glow in our private luxury sanctuary.</p>
+        <a href="#services" class="btn-gold">Explore Services</a>
+    </div>
+
+    <section id="about" class="about reveal">
+        <div class="about-text">
+            <span class="section-subtitle">Our Philosophy</span>
+            <h2 class="section-title">A Sanctuary for <span class="highlight">Women</span></h2>
+            <p>At Beauty Attraction Parlor, we believe beauty is more than skin deep—it's an experience. We have created a strictly <span class="highlight">females-only</span> environment where you can truly relax, be yourself, and be pampered without reserve.</p>
+            <br>
+            <p>Our expert stylists and therapists are dedicated to providing personalized treatments using only the finest products. Step in and let us attract the beauty within you.</p>
+        </div>
+        <div class="about-image"></div>
+    </section>
+
+    <section id="services" class="services">
+        <span class="section-subtitle">Choose Your Experience</span>
+        <h2 class="section-title">Services & Pricing</h2>
+        
+        <div class="menu-grid">
+            
+            <div class="category-card reveal">
+                <h3>Threading & Waxing</h3>
+                <div class="service-row"><span class="service-name">Eyebrow</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Upper Lips</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Forehead</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Face Wax</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Full Arms + Underarms</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Half Legs</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Full Legs</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+            </div>
+
+            <div class="category-card reveal">
+                <h3>Skin & Facials</h3>
+                <div class="service-row"><span class="service-name">Cleanup Fruit</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Facial Fruit</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Bleach Fruit</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">D-Tan (Face)</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Raga Facial</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Aroma Facial</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Arms Bleach</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Arms D-Tan</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+            </div>
+
+            <div class="category-card reveal">
+                <h3>Hair Styling & Spa</h3>
+                <div class="service-row"><span class="service-name">Hair Cutting</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Head Wash</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Head Wash Blow Dry</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Root Touch Up</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Hair Spa Matrix</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Hair Spa Keratin</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Head Massage</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+            </div>
+
+            <div class="category-card reveal">
+                <h3>Massage & Body</h3>
+                <div class="service-row"><span class="service-name">Full Body Massage</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Foot Massage</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Hand Polishing</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Leg Polishing</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Full Body Polishing</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Manicure</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Pedicure</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+            </div>
+
+            <div class="category-card reveal" style="grid-column: 1 / -1; max-width: 500px; margin: 0 auto;">
+                <h3>Henna (Mehndi)</h3>
+                <div class="service-row"><span class="service-name">Arabic Mehndi</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Bridal Mehndi</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <span class="section-subtitle">Our Work</span>
+        <h2 class="section-title">Glance of Beauty</h2>
+        <div class="gallery-grid reveal">
+            <div class="gallery-item g1"></div>
+            <div class="gallery-item g2"></div>
+            <div class="gallery-item g3"></div>
+            <div class="gallery-item g4"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact reveal">
+        <div class="contact-info">
+            <span class="section-subtitle">Find Us</span>
+            <h2 class="section-title" style="text-align: left;">Contact</h2>
+            <h3>Visit the Sanctuary</h3>
+            <p><strong>Address:</strong> U-4 Road Number 16, Building No. 2, U Block, DLF Phase 3, Gurugram, Haryana</p>
+            <p><strong>Phone:</strong> <a href="tel:+919643522754" style="color:var(--text-main); text-decoration:none;">+91 9643522754</a>, <a href="tel:+917678544244" style="color:var(--text-main); text-decoration:none;">+91 7678544244</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/917678544244" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">Message us to Book!</a></p>
+            
+            <ul class="hours">
+                <li><span>Monday - Sunday</span> <span>10:00 AM - 10:00 PM</span></li>
+            </ul>
+        </div>
+        <div class="map-box">
+            <iframe 
+                src="https://maps.google.com/maps?q=U-4%20Road%20Number%2016%20Building%20No.%202%20U%20Block%20Dlf%20Phase%203%20Gurugram%20Haryana&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Beauty Attraction Parlor</h2>
+        <p>Exclusively for Females.</p>
+        <p style="font-size: 0.8rem; margin-top: 20px;">&copy; 2026. All rights reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/917678544244" target="_blank" class="floating-contact">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+        </svg>
+    </a>
+
+    <script>
+        window.addEventListener('scroll', reveal);
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 150; 
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        reveal();
+    </script>
+
+</body>
+</html>
