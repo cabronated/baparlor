@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Attraction Parlor</title>
+    <title>Beauty Attraction Parlor | The Ultimate Ladies Sanctuary</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -234,6 +234,12 @@
             overflow: hidden;
         }
 
+        .combo-card {
+            background: linear-gradient(135deg, #fffcf5 0%, #fdf5df 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            grid-column: 1 / -1; 
+        }
+
         .category-card::before {
             content: '';
             position: absolute;
@@ -262,31 +268,42 @@
         .service-row {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: flex-end; 
             margin-bottom: 15px;
         }
 
         .service-name {
-            font-weight: 400;
-            font-size: 1rem;
+            font-weight: 500;
+            font-size: 1.05rem;
             color: var(--text-main);
             position: relative;
             padding-right: 15px;
-            background: var(--white);
+            max-width: 80%; 
+            line-height: 1.4;
+        }
+
+        .combo-desc {
+            display: block;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            font-weight: 400;
+            margin-top: 5px;
+            font-style: italic;
         }
 
         .service-dots {
             flex-grow: 1;
             border-bottom: 1px dotted #ccc;
             height: 1px;
+            margin-bottom: 6px; 
         }
 
         .service-price {
             font-weight: 600;
             color: var(--deep-charcoal);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             padding-left: 15px;
-            background: var(--white);
+            white-space: nowrap;
         }
 
         /* --- GALLERY SECTION --- */
@@ -359,7 +376,7 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: #25D366; /* WhatsApp Green */
+            background-color: #25D366; 
             color: var(--white);
             width: 60px;
             height: 60px;
@@ -396,6 +413,7 @@
             .map-box { order: -1; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
             .nav-links { display: none; }
+            .service-name { max-width: 70%; }
         }
     </style>
 </head>
@@ -434,56 +452,89 @@
         <h2 class="section-title">Services & Pricing</h2>
         
         <div class="menu-grid">
+
+            <div class="category-card combo-card reveal">
+                <h3>✨ Exclusive Pamper Combos ✨</h3>
+                
+                <div class="service-row">
+                    <span class="service-name">
+                        Combo 1
+                        <span class="combo-desc">Full Leg, Full Arm, Underarm Rica Wax, Face De-Tan, Eyebrow</span>
+                    </span>
+                    <div class="service-dots"></div>
+                    <span class="service-price">₹899</span>
+                </div>
+
+                <div class="service-row">
+                    <span class="service-name">
+                        Combo 2
+                        <span class="combo-desc">Facial, Waxing Full Legs, Full Arm, Underarm Honey Wax, Upper Lips, Forehead</span>
+                    </span>
+                    <div class="service-dots"></div>
+                    <span class="service-price">₹1199</span>
+                </div>
+
+                <div class="service-row">
+                    <span class="service-name">
+                        Combo 3
+                        <span class="combo-desc">Lotus Facial, Waxing Full Legs, Full Arm, Underarm, Threading Work</span>
+                    </span>
+                    <div class="service-dots"></div>
+                    <span class="service-price">₹1299</span>
+                </div>
+            </div>
             
             <div class="category-card reveal">
                 <h3>Threading & Waxing</h3>
-                <div class="service-row"><span class="service-name">Eyebrow</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Upper Lips</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Forehead</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Face Wax</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Full Arms + Underarms</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Half Legs</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Full Legs</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Eyebrow</span><div class="service-dots"></div><span class="service-price">₹30</span></div>
+                <div class="service-row"><span class="service-name">Forehead</span><div class="service-dots"></div><span class="service-price">₹20</span></div>
+                <div class="service-row"><span class="service-name">Upper Lips</span><div class="service-dots"></div><span class="service-price">₹20</span></div>
+                <div class="service-row"><span class="service-name">Face Wax (Bean Wax)</span><div class="service-dots"></div><span class="service-price">₹499</span></div>
+                <div class="service-row"><span class="service-name">Full Arms + Underarms + Half Leg</span><div class="service-dots"></div><span class="service-price">₹499</span></div>
+                <div class="service-row"><span class="service-name">Full Arms + Underarms + Full Leg</span><div class="service-dots"></div><span class="service-price">₹699</span></div>
             </div>
 
             <div class="category-card reveal">
-                <h3>Skin & Facials</h3>
-                <div class="service-row"><span class="service-name">Cleanup Fruit</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Facial Fruit</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Bleach Fruit</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">D-Tan (Face)</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Raga Facial</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Aroma Facial</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Arms Bleach</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Arms D-Tan</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <h3>Skin Care & Facials</h3>
+                <div class="service-row"><span class="service-name">Clean Up</span><div class="service-dots"></div><span class="service-price">₹499</span></div>
+                <div class="service-row"><span class="service-name">Facial</span><div class="service-dots"></div><span class="service-price">₹699</span></div>
+                <div class="service-row"><span class="service-name">Sara Facial</span><div class="service-dots"></div><span class="service-price">₹799</span></div>
+                <div class="service-row"><span class="service-name">Ice Cream Facial</span><div class="service-dots"></div><span class="service-price">₹799</span></div>
+                <div class="service-row"><span class="service-name">Korean Facial</span><div class="service-dots"></div><span class="service-price">₹1499</span></div>
+                <div class="service-row"><span class="service-name">Korean Cleanup</span><div class="service-dots"></div><span class="service-price">₹799</span></div>
+                <div class="service-row"><span class="service-name">Vitamin C Facial</span><div class="service-dots"></div><span class="service-price">₹699</span></div>
+                <div class="service-row"><span class="service-name">Bleach</span><div class="service-dots"></div><span class="service-price">₹299</span></div>
+                <div class="service-row"><span class="service-name">D-Tan (Face)</span><div class="service-dots"></div><span class="service-price">₹249</span></div>
+                <div class="service-row"><span class="service-name">Arms Bleach</span><div class="service-dots"></div><span class="service-price">₹349</span></div>
+                <div class="service-row"><span class="service-name">Arms D-Tan</span><div class="service-dots"></div><span class="service-price">₹399</span></div>
             </div>
 
             <div class="category-card reveal">
                 <h3>Hair Styling & Spa</h3>
-                <div class="service-row"><span class="service-name">Hair Cutting</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Head Wash</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Head Wash Blow Dry</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Root Touch Up</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Hair Spa Matrix</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Hair Spa Keratin</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Head Massage</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Hair Cutting</span><div class="service-dots"></div><span class="service-price">₹349</span></div>
+                <div class="service-row"><span class="service-name">Head Wash</span><div class="service-dots"></div><span class="service-price">₹249</span></div>
+                <div class="service-row"><span class="service-name">Head Wash Blow Dry</span><div class="service-dots"></div><span class="service-price">₹299</span></div>
+                <div class="service-row"><span class="service-name">Root Touch Up</span><div class="service-dots"></div><span class="service-price">₹999</span></div>
+                <div class="service-row"><span class="service-name">Botex (Hair Treatment)</span><div class="service-dots"></div><span class="service-price">₹2499</span></div>
+                <div class="service-row"><span class="service-name">Hair Spa Botex</span><div class="service-dots"></div><span class="service-price">₹699</span></div>
+                <div class="service-row"><span class="service-name">Hair Spa Keratin</span><div class="service-dots"></div><span class="service-price">₹499</span></div>
+                <div class="service-row"><span class="service-name">Head Massage (10 Mins)</span><div class="service-dots"></div><span class="service-price">₹149</span></div>
             </div>
 
             <div class="category-card reveal">
                 <h3>Massage & Body</h3>
-                <div class="service-row"><span class="service-name">Full Body Massage</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Foot Massage</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Hand Polishing</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Leg Polishing</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Full Body Polishing</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Manicure</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Pedicure</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Full Body Massage</span><div class="service-dots"></div><span class="service-price">₹999</span></div>
+                <div class="service-row"><span class="service-name">Foot Massage</span><div class="service-dots"></div><span class="service-price">₹399</span></div>
+                <div class="service-row"><span class="service-name">Full Body Polishing</span><div class="service-dots"></div><span class="service-price">₹1499</span></div>
+                <div class="service-row"><span class="service-name">Full Body Bleach</span><div class="service-dots"></div><span class="service-price">₹1499</span></div>
+                <div class="service-row"><span class="service-name">Manicure</span><div class="service-dots"></div><span class="service-price">₹299</span></div>
+                <div class="service-row"><span class="service-name">Pedicure</span><div class="service-dots"></div><span class="service-price">₹499</span></div>
             </div>
 
-            <div class="category-card reveal" style="grid-column: 1 / -1; max-width: 500px; margin: 0 auto;">
+            <div class="category-card reveal" style="grid-column: 1 / -1; max-width: 500px; margin: 0 auto; background-color: var(--white);">
                 <h3>Henna (Mehndi)</h3>
-                <div class="service-row"><span class="service-name">Arabic Mehndi</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
-                <div class="service-row"><span class="service-name">Bridal Mehndi</span><div class="service-dots"></div><span class="service-price">₹--</span></div>
+                <div class="service-row"><span class="service-name">Arabic Mehndi</span><div class="service-dots"></div><span class="service-price">₹399</span></div>
+                <div class="service-row"><span class="service-name">Bridal Mehndi</span><div class="service-dots"></div><span class="service-price">₹1999</span></div>
             </div>
 
         </div>
@@ -529,7 +580,7 @@
     <footer>
         <h2>Beauty Attraction Parlor</h2>
         <p>Exclusively for Females.</p>
-        <p style="font-size: 0.8rem; margin-top: 20px;">&copy; 2026. All rights reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 20px;">© 2026. All rights reserved.</p>
     </footer>
 
     <a href="https://wa.me/917678544244" target="_blank" class="floating-contact">
